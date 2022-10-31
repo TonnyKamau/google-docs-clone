@@ -1,25 +1,20 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_docs_clone/colors.dart';
 import 'package:google_docs_clone/repository/auth_repository.dart';
-import 'package:google_docs_clone/screens/homescreen.dart';
+
+import 'package:routemaster/routemaster.dart';
 
 class Login extends ConsumerWidget {
   const Login({super.key});
   void signInWithGoogle(WidgetRef ref, BuildContext context) async {
     final message = ScaffoldMessenger.of(context);
-    final navigator = Navigator.of(context);
+    final navigator = Routemaster.of(context);
     final errorModel =
         await ref.read(authRepositoryProvider).signInWithGoogle();
     if (errorModel.error == null) {
       ref.read(userProvider.notifier).update((state) => errorModel.data);
-      navigator.push(
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+      navigator.replace('/');
     } else {
       message.showSnackBar(
         SnackBar(
