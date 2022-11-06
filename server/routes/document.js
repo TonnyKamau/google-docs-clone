@@ -1,22 +1,28 @@
-const express =require('express');
-const Document = require('../models/document');
+const express = require("express");
+const Document = require("../models/document");
 const documentRouter = express.Router();
 const auth = require("../middlewares/auth");
 
-documentRouter.post('/doc/create',auth , async (req,res)=>{
-try{
-    const {createdAt}=req.body;
+documentRouter.post("/doc/create", auth, async (req, res) => {
+  try {
+    const { createdAt } = req.body;
     let document = new Document({
-        uid:req.user,
-        title:'untiled document',
-        createdAt,
-  
+      uid: req.user,
+      title: "untiled document",
+      createdAt,
     });
     document = await document.save();
     res.json(document);
-
-}catch(e){
+  } catch (e) {
     res.status(500).json({ error: e.message });
-}
+  }
+});
+documentRouter.get("/docs/me", auth, async (req, res) => {
+  try {
+    let documents = await Document.find({ uid: req.user });
+    res.json(documents);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });
 module.exports = documentRouter;
