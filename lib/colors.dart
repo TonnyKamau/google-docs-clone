@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-const CWhitecolor = Colors.white;
-const CBlackcolor = Colors.black;
-const CRedcolor = Colors.red;
+const cWhitecolor = Colors.white;
+const cBlackcolor = Colors.black;
+const cRedcolor = Colors.red;
+const cBluecolor = Color.fromRGBO(26, 115, 232, 1);

@@ -37,12 +37,12 @@ class Login extends ConsumerWidget {
           label: const Text(
             'Sign in with google',
             style: TextStyle(
-              color: CBlackcolor,
+              color: cBlackcolor,
               fontFamily: 'Roboto',
             ),
           ),
           style: ElevatedButton.styleFrom(
-            backgroundColor: CWhitecolor,
+            backgroundColor: cWhitecolor,
             minimumSize: const Size(150, 50),
           ),
         ),
