@@ -42,21 +42,21 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: CWhitecolor,
+        backgroundColor: cWhitecolor,
         elevation: 0,
         actions: [
           IconButton(
             onPressed: () => createDocument(context, ref),
             icon: const Icon(
               Icons.add,
-              color: CBlackcolor,
+              color: cBlackcolor,
             ),
           ),
           IconButton(
             onPressed: () => signOut(ref),
             icon: const Icon(
               Icons.logout,
-              color: CRedcolor,
+              color: cRedcolor,
             ),
           ),
         ],
